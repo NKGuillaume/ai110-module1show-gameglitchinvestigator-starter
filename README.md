@@ -26,13 +26,21 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+  The purpose of the game's is to find logic and use AI to create test to find flaw in your logic and repair them.
 - [ ] Detail which bugs you found.
+  -The first the submit it didn't create the count by 1
+  -After you won the game, if you pressed play again it wouldnt work 
+  - lower/ higher
+  -Range in diffculty 
 - [ ] Explain what fixes you applied.
+  - when play agained is pressed it reset everything
+  - change the diffcult of hard and easy with normal as a  reference point
+  - apon the first click On submit is decrease the attempt by 1 
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
-
+- [] [Insert a screenshot of your fixed, winning game here]
+ ![alt text](image.png)
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]

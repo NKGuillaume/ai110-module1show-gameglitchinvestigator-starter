@@ -1,16 +1,22 @@
+import pytest
+
 from logic_utils import check_guess
 
-def test_winning_guess():
-    # If the secret is 50 and guess is 50, it should be a win
-    result = check_guess(50, 50)
-    assert result == "Win"
 
-def test_guess_too_high():
-    # If secret is 50 and guess is 60, hint should be "Too High"
-    result = check_guess(60, 50)
-    assert result == "Too High"
+@pytest.mark.parametrize(
+    ("guess", "secret", "expected"),
+    [
+        (50, 50, ("Win", "🎉 Correct!")),
+        (60, 50, ("Too High", "📉 Go LOWER!")),
+        (40, 50, ("Too Low", "📈 Go HIGHER!")),
+    ],
+)
+def test_check_guess_returns_expected_outcome_and_hint(guess, secret, expected):
+    assert check_guess(guess, secret) == expected
 
-def test_guess_too_low():
-    # If secret is 50 and guess is 40, hint should be "Too Low"
-    result = check_guess(40, 50)
-    assert result == "Too Low"
+
+def test_check_guess_regression_lower_guess_stays_too_low():
+    outcome, message = check_guess(40, 50)
+
+    assert outcome == "Too Low"
+    assert "HIGHER" in message
